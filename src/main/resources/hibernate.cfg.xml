@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">1qaz2wsx</property>
+        <property name="hibernate.connection.password">as83031183</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cinema?serverTimezone=Asia/Taipei</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -18,6 +18,6 @@
     	
     	<property name="hibernate.format_sql">true</property>
         
-        <mapping class="com.food.model.Food"/>
+
     </session-factory>
 </hibernate-configuration>

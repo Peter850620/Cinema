@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Player</title>
+    <style>
+        /* 將播放器容器設置為指定的寬度和高度 */
+        #muteYouTubeVideoPlayer {
+            width: 650px;
+            height: 356px;
+        }
+
+        /* 隱藏播放器控制按鈕 */
+        .ytp-chrome-top,
+        .ytp-chrome-bottom {
+            display: none !important;
+        }
+
+        /* 隱藏全螢幕按鈕 */
+        .ytp-fullscreen-button {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 在此放置你的 YouTube 播放器容器 -->
+    <div id="muteYouTubeVideoPlayer"></div>
+
+    <!-- 引入 YouTube Iframe API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <!-- 使用一般的 <script> 標籤來初始化 YouTube 播放器 -->
+    <script>
+        // 在 YouTube Iframe API 加載完成後，執行初始化程式碼
+        function onYouTubeIframeAPIReady() {
+            var player;
+            player = new YT.Player('muteYouTubeVideoPlayer', {
+                videoId: '2ymhllPMCrg', /* YouTube 影片 ID */
+                width: 650, /* 播放器寬度 (in px) */
+                height: 356, /* 播放器長度 (in px) */
+                playerVars: {
+                    autoplay: 1, /* 自動播放視頻 */
+                    controls: 1, /* 顯示播放/暫停按鈕 */
+                    showinfo: 0, /* 隱藏影片標題 */
+                    modestbranding: 1, /* 隱藏 YouTube LOGO */
+                    loop: 1, /* 循環播放 */
+                    fs: 0, /* 隱藏全螢幕視窗按鈕 */
+                    cc_load_policty: 0, /* 隱藏關閉字幕 */
+                    iv_load_policy: 3, /* 隱藏影片註釋 */
+                    autohide: 0 /* 播放時隱藏影片控制按鈕 */
+                },
+                events: {
+                    onReady: function(e) {
+                        e.target.mute(); /* 靜音 */
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

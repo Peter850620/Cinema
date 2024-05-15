@@ -7,3 +7,4 @@ bin/
 *.idea
 *.iml
 /.metadata/
+/src/main/java/com/cinema/FuncRepository.java
