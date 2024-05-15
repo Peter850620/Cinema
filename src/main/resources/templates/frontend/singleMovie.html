@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>世界影城 HelloWorld Cinema</title>
+    <link rel="icon" href="../../../../../../../Users/Chu/Desktop/frontend_html/img/logo%20(3).ico" type="image/x-icon">
+
+    <meta name="description" content="世界影城、提供電影介紹、場次時刻表、購票資訊、會員網路訂票服務、電影周邊商品販售、影廳場地租借服務">
+    <meta name="keywords" content="世界、電影、世界影城、HelloWorld Cinema" />
+    <meta name="robots" content="Index,follow">
+    <meta property="og:title" content="世界影城" />
+    <meta property="og:image" content=".img/bk.jpg" />
+    <meta property="og:site_name" content="世界影城網站" />
+    <meta property="og:url" content="https://www.ambassador.com.tw" />
+    <meta property="og:description" content="世界影城、提供電影介紹、場次時刻表、購票資訊、會員網路訂票服務、電影周邊商品販售、影廳場地租借服務" />
+    <!-- RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    
+    
+    
+    <!-- 底部footer -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    
+    
+    
+    <!-- 主要css -->
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <!-- 電影PV -->
+    <link rel="stylesheet" type="text/css" href="./css/singleMovie.css" />
+</head>
+<body>
+
+    <!-- 載入動畫 -->
+    <canvas></canvas>
+
+
+    <!-- 選單 -->
+    <header class="header">
+        <div id="box" class="logo">
+            <h1 class="neon"><a href="index.html"><span class="logo_el">H</span>ello<span class="logo_el">W</span>orld <span class="logo_el">C</span>inema</a></h1>
+        </div>
+        <div id="box">
+            <nav class="nav">
+                <ul class="nav_menu">
+                    <li class="nav__menu-item">
+                        <a href=""><h4 class="neon2">影城資訊</h4></a>
+                        <ul class="nav__submenu">
+                            <li class="nav__submenu-item">
+                                <a href="">最新資訊</a>
+                            </li>
+                            <li class="nav__submenu-item">
+                                <a href="">票價說明</a>
+                            </li>
+                            <li class="nav__submenu-item">
+                                <a href="">即將上映</a>
+                            </li>
+                            <li class="nav__submenu-item">
+                                <a href="">現正熱映</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__menu-item">
+                        <a href=""><h4 class="neon2">線上訂票</h4></a>
+                        <ul class="nav__submenu">
+                            <li class="nav__submenu-item">
+                                <a href=""></a>
+                            </li>
+
+                        </ul>
+                    
+                    </li>
+                    <li class="nav__menu-item">
+                        <a href=""><h4 class="neon2">周邊商城</h4></a>
+                        <ul class="nav__submenu">
+                            <li class="nav__submenu-item">
+                                <a href=""></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav__menu-item">
+                        <a href=""><h4 class="neon2">場地租借</h4></a>
+                        <ul class="nav__submenu">
+                            <li class="nav__submenu-item">
+                                <a href="">場地租借須知</a>
+                            </li>
+                            <li class="nav__submenu-item">
+                                <a href="">可租借場地資訊</a>
+                            </li>
+                            <li class="nav__submenu-item">
+                                <a href="">租借表單填寫</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__menu-item">
+                        <a href=""><h4 class="neon2">Log In</h4></a>
+                        <ul class="nav__submenu">
+                            <li class="nav__submenu-item">
+                                <a href=""></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+    </header>
+
+
+<br>
+<!-- ========================以下區域可放置其他內容======================== -->
+
+<div class="single_movie">
+    
+    <img class="movie_pic" src="../../../../../../../Users/Chu/Desktop/frontend_html/img/aquaman.jpg" alt="">
+    
+    <div class="movie_content">
+        <h1 class="movie_name">水行俠</h2>
+        <ul>
+            <li class="key">級別    <span class="rating">普遍級</span></li>
+            <li class="key">片長    <span class="runtime">120</span><span>分鐘</span></li>
+            <li class="key">上映日  <span class="release_date">2024-04-01</span></li>
+            <li class="key">類型    <span class="genre">科幻片</span></li>
+            <li class="key">語言    <span class="language">英語</span></li>
+            <li class="key">簡介    <p class="movie_info">故事講述一位生活在水下的半人半魚的男子，他與人類女子之間展開了一段不尋常的愛情故事。他必須面對他與人類社會的分離，以及保護他所愛的人的挑戰。</p></li>
+        </ul>
+        
+    </div>
+</div>
+
+
+<h2 class="movie_screen">場次資訊</h2>
+<div class="showtime_choice">
+    <!-- 場次資訊 -->
+    <ul class="tabs">
+        <li><a id="showtime_content" class="active" href="#tab1">2024-04-12</a></li>
+        <li><a id="showtime_content" href="#tab2">2024-04-13</a></li>
+        <li><a id="showtime_content" href="#tab3">2024-04-14</a></li>
+        <li><a id="showtime_content" href="#tab3">2024-04-15</a></li>
+        <li><a id="showtime_content" href="#tab3">2024-04-16</a></li>
+    </ul>
+  <!-- .tabs -->
+  <div class="tab_container">
+    <div id="tab1" class="tab_content">
+      <div id="screen">
+        A廳
+      </div>
+      <div id="language">2D英語</div>
+      <div id="showtime">
+        <a href="#" class="showtime_btn" data-modal=".confirm">14:00</a>
+        <a href="#" class="showtime_btn" data-modal=".confirm">16:35</a>
+        <a href="#" class="showtime_btn" data-modal=".confirm">19:00</a>
+      </div>
+    </div>
+    <!-- #tab1 -->
+    <div id="tab2" class="tab_content">
+        <div id="screen">
+            A廳
+          </div>
+          <div id="language">2D英語</div>
+          <div id="showtime">
+            <a href="#" class="showtime_btn" data-modal=".confirm">14:00</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">16:35</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">19:00</a>
+          </div>
+    </div>
+    <!-- #tab2 -->
+    <div id="tab3" class="tab_content">
+        <div id="screen">
+            A廳
+          </div>
+          <div id="language">2D英語</div>
+          <div id="showtime">
+            <a href="#" class="showtime_btn" data-modal=".confirm">14:00</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">16:35</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">19:00</a>
+          </div>
+    </div>
+    <!-- #tab3 -->
+    <div id="tab4" class="tab_content">
+        <div id="screen">
+            A廳
+          </div>
+          <div id="language">2D英語</div>
+          <div id="showtime">
+            <a href="#" class="showtime_btn" data-modal=".confirm">14:00</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">16:35</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">19:00</a>
+          </div>
+    </div>
+    <!-- #tab4 -->
+    <div id="tab5" class="tab_content">
+        <div id="screen">
+            A廳
+          </div>
+          <div id="language">2D英語</div>
+          <div id="showtime">
+            <a href="#" class="showtime_btn" data-modal=".confirm">14:00</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">16:35</a>
+            <a href="#" class="showtime_btn" data-modal=".confirm">19:00</a>
+          </div>
+    </div>
+    <!-- #tab5 -->
+  </div>
+  <!-- .tab_container -->
+</div>
+
+
+<!-- 點選場次時刻確認彈跳視窗 -->
+<div class="confirm">
+    <p class="message">是否前往訂票?</p>
+    <div class="options">
+        <a href="#" class="yes" data-modal=".confirm">是</a>
+      <a href="#" class="no" data-modal=".confirm">否</a>
+    </div>
+</div>
+
+
+
+<!-- 電影PV，只需變動影片ID -->
+<h2 class="movie_PV">電影預告</h2>
+<div class='embed-container'>
+    <iframe src='https://www.youtube-nocookie.com/embed/4VrcUVzvRwM?rel=0&hd=1&loop=1&playlist=4VrcUVzvRwM' allowfullscreen></iframe>
+</div>
+
+
+
+
+
+<!-- ========================以上區域可放置其他內容======================== -->
+<br>
+
+
+
+
+
+    <!-- 底部footer -->
+    <footer class="footer">
+        <div class="titleCont">
+            <h1 class="main-title" id="main-title">
+                    "You must not be afraid to dream a little bigger, darling."
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4 class="neon2">關於我們</h4>
+                    <ul>
+                        <li><a href="#">影城簡介</a></li>
+                        <li><a href="#">影城交通</a></li>
+                        <li><a href="#">影城設備</a></li>
+                        <li><a href="#">注意事項</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="neon2">電影評論區</h4>
+                    <ul>
+                        <li><a href="#">影評查詢</a></li>
+                        <li><a href="#">電影分類</a></li>
+                        <li><a href="#">排行榜</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="neon2">客服中心</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">真人聊天室</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="neon2">follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+
+
+
+    
+
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    
+    <!-- 主要js -->
+    <script src="./js/index.js"></script>
+   
+   <script src="./js/singleMovie.js"></script>
+    
+</body>
+</html>
