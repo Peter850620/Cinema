@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>所有員工資料 - listAllEmp.html</title>
 
-<!--    <head th:insert="~{/included-fragment}"></head>-->
+    <head th:insert="~{/included-fragment}"></head>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>                                    <!-- ●●js  for jquery datatables 用 -->
     <script	src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>              <!-- ●●js  for jquery datatables 用 -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.jqueryui.min.css" /> <!-- ●●css for jquery datatables 用 -->
@@ -50,9 +50,9 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top justify-content-center">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top justify-content-center">
     <div align="center"> <h2>所有員工資料 - listAllEmp.html</h2>
-        <h3><a class="navbar-brand" th:href="@{select_page}"><img th:src="@{/images/back1.gif}">回查詢頁<label th:text="${success}"></label></a></h3></div>
+        <h3><a class="navbar-brand" th:href="@{emp/select_page}"><img th:src="@{/images/back1.gif}">回查詢頁<label th:text="${success}"></label></a></h3></div>
 </nav>
 
 <table id="example" class="display" style="width: 100%">
@@ -86,13 +86,13 @@
 <!--            <td><img th:src="@{/emp/DBGifReader} + '?empno=' + ${empVO.empno}" width="100px"></td>-->
             <td th:text="${empVO.jobVO.jobId} + '-[' + ${empVO.jobVO.title} + ']'"></td>
             <td>
-                <form method="post" th:action="@{listAllEmp}" style="margin-bottom: 0px;">
+                <form action="/emp/updateEmp" method="post"  style="margin-bottom: 0px;">
                     <input type="submit" value="修改">
                     <input type="hidden" name="empId" th:value="${empVO.empId}"></form>
 
             </td>
             <td>
-                <form method="post" th:action="@{../emp/deleteEmp}" style="margin-bottom: 0px;">
+                <form method="post" th:action="@{/emp/deleteEmp}" style="margin-bottom: 0px;">
                     <input type="submit" value="刪除">
                     <input type="hidden" name="empId" th:value="${empVO.empId}"></form>
 

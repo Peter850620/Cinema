@@ -46,25 +46,7 @@ public class IndexController {
 
 
     //=========== 以下第63~75行是提供給 /src/main/resources/templates/back-end/emp/select_page.html 與 listAllEmp.html 要使用的資料 ===================
-    @GetMapping("/select_page")
-    public String select_page(Model model) {
-        return "select_page";
-    }
 
-    @GetMapping("/listAllEmp")
-    public String listAllEmp(Model model) {
-        return "listAllEmp";
-    }
-    @ModelAttribute("empListData")  // for select_page.html 第97 109行用 // for listAllEmp.html 第85行用
-    protected List<EmpVO> referenceListData(Model model) {
-        return empService.getAll();
-    }
-
-    @ModelAttribute("jobListData") // for select_page.html 第135行用
-    protected List<JobVO> referenceListData_Job(Model model) {
-        model.addAttribute("jobVO", new JobVO()); // for select_page.html 第133行用
-        return jobService.getAll();
-    }
 
 
 

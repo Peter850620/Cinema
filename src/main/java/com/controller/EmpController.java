@@ -7,7 +7,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -55,8 +58,21 @@ public class EmpController {
     @PostMapping("/addEmp")
     public String addEmp(Model model) {
 
-        EmpVO emp = new EmpVO();
-        model.addAttribute(emp);
+        EmpVO empVO = new EmpVO();
+        JobVO jobVO = new JobVO();
+        model.addAttribute("empVO",empVO);
+        model.addAttribute("jobVO",jobVO);
+        return "addEmp";
+
+    }
+
+    @GetMapping("/addEmp")
+    public String getEmp(Model model) {
+
+        EmpVO empVO = new EmpVO();
+        JobVO jobVO = new JobVO();
+        model.addAttribute("empVO",empVO);
+        model.addAttribute("jobVO",jobVO);
         return "addEmp";
 
     }
@@ -72,23 +88,40 @@ public class EmpController {
 
     }
 
-    @PostMapping("/getbyId")
-    public String getbyId(@RequestParam("empId") Integer empId, Model model) {
+//    @PostMapping("/getbyId")
+//    public String getbyId(@RequestParam("empId") Integer empId, Model model) {
+//
+//        EmpVO empVO = empService.getbyId(Integer.valueOf(empId));
+//        model.addAttribute("EmpVO", empVO);
+//        return "updateEmp";
+//    }
 
-        EmpVO emp = empService.getbyId(Integer.valueOf(empId));
-        model.addAttribute("EmpVO", emp);
-        return "getbyId";
+    @PostMapping("getOne_For_Update")
+    public String getOne_For_Update(@RequestParam("empId") String empId, ModelMap model) {
+
+        // EmpService empSvc = new EmpService();
+        EmpVO empVO = empService.getbyId(Integer.valueOf(empId));
+        model.addAttribute("empVO", empVO);
+        return "updateEmp"; // 查詢完成後轉交update_emp_input.html
     }
 
-    @PostMapping("/updateEmp")
-    public String updateEmp(@Valid EmpVO empVO, Model model) {
-
-        empService.updateEmp(empVO);
-        model.addAttribute("success", "修改成功");
-        empVO = empService.getbyId(Integer.valueOf(empVO.getEmpId()));
-        model.addAttribute("empVO", empVO);
+    @GetMapping("/toupdateEmp")
+    public String updateEmp() {
         return "updateEmp";
     }
+    //ModelMap model
+    @PostMapping("updateEmp")
+    public String update(@Valid EmpVO empVO)  {
+
+        empVO = empService.getbyId(Integer.valueOf(empVO.getEmpId()));
+        // EmpService empSvc = new EmpService();
+        empService.updateEmp(empVO);
+//        model.addAttribute("success", "修改成功");
+
+//        model.addAttribute("empVO", empVO);
+        return  "updateEmp"; // 修改成功後轉交listOneEmp.html
+    }
+
 
     @PostMapping("/deleteEmp")
     public String deleteEmp(@RequestParam("empId") Integer empId, Model model) {
@@ -111,7 +144,7 @@ public class EmpController {
      * 第一種作法 Method used to populate the List Data in view. 如 :
      * <form:select path="deptno" id="deptno" items="${deptListData}" itemValue="deptno" itemLabel="dname" />
      */
-    @ModelAttribute("deptListData")
+    @ModelAttribute("jobListData")
     protected List<JobVO> referenceListData() {
         // DeptService deptSvc = new DeptService();
         List<JobVO> list = jobService.getAll();
@@ -208,6 +241,39 @@ public class EmpController {
             return "啊失敗了";
         }
     }
+
+    @GetMapping("/select_page")
+    public String select_page(Model model) {
+        List<EmpVO> empList = empService.getAll();
+        List<JobVO> jobList = jobService.getAll();
+        model.addAttribute("empListData", empList);
+        model.addAttribute("jobListData", jobList); // 添加jobListData到模型中
+        return "select_page";
+    }
+
+
+    @GetMapping("/listAllEmp")
+    public String listAllEmp(Model model) {
+        List<EmpVO> empList = empService.getAll();
+        List<JobVO> jobList = jobService.getAll();
+        model.addAttribute("empListData", empList);
+        model.addAttribute("jobListData", jobList); // 添加jobListData到模型中
+        return "listAllEmp";
+    }
+    @ModelAttribute("empListData")  // for select_page.html 第97 109行用 // for listAllEmp.html 第85行用
+    protected List<EmpVO> referenceListData(Model model) {
+
+        List<EmpVO> list = empService.getAll();
+        return list;
+    }
+
+    @ModelAttribute("jobListData") // for select_page.html 第135行用
+    protected List<JobVO> referenceListData_Job(Model model) {
+        model.addAttribute("jobVO", new JobVO()); // for select_page.html 第133行用
+        return jobService.getAll();
+    }
+
+
 
 }
 

@@ -5,30 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>員工資料修改 - updateEmp.html</title>
 
-    <head th:insert="~{included-fragment}"></head>
+
     <style type="text/css">
 
         button {
             padding: 5px;
         }
+
         form {
             display: table;
         }
+
         form div {
             display: table-row;
         }
+
         label, input, span, select {
             display: table-cell;
             margin: 5px;
             text-align: left;
         }
+
         input[type=text], input[type=password], select, textarea {
             width: 200px;
             margin: 5px;
         }
+
         form div div {
             display: table-cell;
         }
+
         .center {
             margin-left: auto;
             margin-right: auto;
@@ -37,76 +43,80 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top justify-content-center">
-    <div align="center"> <h2>員工資料修改 - updateEmp.html</h2>
-        <h3><a class="navbar-brand" th:href="@{/select_page}"><img th:src="@{/images/back1.gif}">回查詢頁</a></h3></div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top justify-content-center">
+    <div align="center"><h2>員工資料修改 - updateEmp.html</h2>
+        <h3><a class="navbar-brand" th:href="@{/emp/select_page}"><img th:src="@{/images/back1.gif}">回查詢頁</a></h3>
+    </div>
 </nav>
 
 <div align="center">
     <h3><b>所有欄位皆為必填欄位</b></h3>
-    <form th:action="@{update}" method="post" th:object="${empVO}" enctype="multipart/form-data">
+    <form th:action="@{/emp/updateEmp}" method="post" th:object="${empVO}" enctype="multipart/form-data">
         <div>
             <label>員工編號:</label>
-            <input type="text" th:field="*{empId}" style="border:0px ; font-weight: bold;" readonly /><br/>
+            <input type="text" th:field="*{empId}" style="border:0px ; font-weight: bold;" readonly/><br/>
 
         </div>
 
         <div>
             <label>員工姓名:</label>
-            <input type="text" th:field="*{empName}" onclick="hideContent('empName.errors');" /><br/>
-            <span  th:if="${#fields.hasErrors('empName')}" th:errors="*{empName}" class="error" id="empName.errors"></span>
+            <input type="text" th:field="*{empName}" onclick="hideContent('empName.errors');"/><br/>
+            <span th:if="${#fields.hasErrors('empName')}" th:errors="*{empName}" class="error"
+                  id="empName.errors"></span>
         </div>
 
-<!--        <div>-->
-<!--            <label>職位:</label>-->
-<!--            <input type="text" th:field="*{job}" onclick="hideContent('job.errors');" /><br/>-->
-<!--            <span  th:if="${#fields.hasErrors('job')}" th:errors="*{job}" class="error" id="job.errors"></span>-->
-<!--        </div>-->
+        <!--        <div>-->
+        <!--            <label>職位:</label>-->
+        <!--            <input type="text" th:field="*{job}" onclick="hideContent('job.errors');" /><br/>-->
+        <!--            <span  th:if="${#fields.hasErrors('job')}" th:errors="*{job}" class="error" id="job.errors"></span>-->
+        <!--        </div>-->
 
         <div>
             <label>雇用日期:</label>
-            <input type="date" th:field="*{hireDate}" onclick="hideContent('hireDate.errors');" /><br/>
-            <span  th:if="${#fields.hasErrors('hireDate')}" th:errors="*{hireDate}" class="error" id="hireDate.errors"></span>
+            <input type="date" th:field="*{hireDate}" onclick="hideContent('hireDate.errors');"/><br/>
+            <span th:if="${#fields.hasErrors('hireDate')}" th:errors="*{hireDate}" class="error"
+                  id="hireDate.errors"></span>
         </div>
 
         <div>
             <label>密碼:</label>
-            <input type="text" th:field="*{empPassword}" onclick="hideContent('empPassword.errors');" /><br/>
-            <span  th:if="${#fields.hasErrors('empPassword')}" th:errors="*{empPassword}" class="error" id="empPassword.errors"></span>
+            <input type="text" th:field="*{empPassword}" onclick="hideContent('empPassword.errors');"/><br/>
+            <span th:if="${#fields.hasErrors('empPassword')}" th:errors="*{empPassword}" class="error"
+                  id="empPassword.errors"></span>
         </div>
 
         <div>
             <label>電子信箱:</label>
-            <input type="text" th:field="*{empEmail}" onclick="hideContent('empEmail.errors');" /><br/>
-            <span  th:if="${#fields.hasErrors('empEmail')}" th:errors="*{empEmail}" class="error" id="empEmail.errors"></span>
+            <input type="text" th:field="*{empEmail}" onclick="hideContent('empEmail.errors');"/><br/>
+            <span th:if="${#fields.hasErrors('empEmail')}" th:errors="*{empEmail}" class="error"
+                  id="empEmail.errors"></span>
         </div>
         <div>
             <label>狀態:</label>
-            <input type="text" th:field="*{empStatus}" onclick="hideContent('empStatus.errors');" /><br/>
-            <span  th:if="${#fields.hasErrors('empStatus')}" th:errors="*{empStatus}" class="error" id="empStatus.errors"></span>
+            <input type="text" th:field="*{empStatus}" onclick="hideContent('empStatus.errors');"/><br/>
+            <span th:if="${#fields.hasErrors('empStatus')}" th:errors="*{empStatus}" class="error"
+                  id="empStatus.errors"></span>
         </div>
 
         <div>
             <label>職稱:</label>
             <select th:field="*{jobVO.jobId}">
-                <option th:each="jobVO : ${jobListData}" th:value="${jobVO.jobId}" th:text="${jobVO.title}" />
+                <option th:each="jobVO : ${jobListData}" th:value="${jobVO.jobId}" th:text="${jobVO.title}"/>
             </select>
-            <span th:if="${#fields.hasErrors('jobVO.jobId')}" th:errors="*{jobVO.jobId}" class="error" id="jobVO.jobId.errors"></span>
+            <span th:if="${#fields.hasErrors('jobVO.jobId')}" th:errors="*{jobVO.jobId}" class="error"
+                  id="jobVO.jobId.errors"></span>
         </div>
 
 
+        <!--        <div>-->
+        <!--            <label>照片:</label>-->
+        <!--            <input type="file" th:field="*{upFiles}" onclick="previewImage()" multiple="multiple" />-->
+        <!--            &lt;!&ndash; 可以不修改圖片 <span  th:if="${#fields.hasErrors('upFiles')}" th:errors="*{upFiles}" class="error" id="upFiles.errors"></span> &ndash;&gt;-->
+        <!--            <div id="blob_holder"><img th:src="@{/emp/DBGifReader} + '?empno=' + ${empVO.empno}" width="100px"></div>-->
+        <!--        </div>-->
 
-<!--        <div>-->
-<!--            <label>照片:</label>-->
-<!--            <input type="file" th:field="*{upFiles}" onclick="previewImage()" multiple="multiple" />-->
-<!--            &lt;!&ndash; 可以不修改圖片 <span  th:if="${#fields.hasErrors('upFiles')}" th:errors="*{upFiles}" class="error" id="upFiles.errors"></span> &ndash;&gt;-->
-<!--            <div id="blob_holder"><img th:src="@{/emp/DBGifReader} + '?empno=' + ${empVO.empno}" width="100px"></div>-->
-<!--        </div>-->
-
-        <div>
-            <div></div>
-            <div><button type="submit" id="submit"> 送出修改 </button></div>
-            <div></div>
+        <div><!--            value="修改成功"-->
+            <button type="submit"> 送出修改</button>
         </div>
     </form>
 
@@ -126,23 +136,25 @@
         alert("No FileReader support");
     }
     acceptedTypes = {
-        'image/png' : true,
-        'image/jpeg' : true,
-        'image/gif' : true
+        'image/png': true,
+        'image/jpeg': true,
+        'image/gif': true
     };
+
     function previewImage() {
         var upfile1 = document.getElementById("upFiles");
-        upfile1.addEventListener("change", function(event) {
+        upfile1.addEventListener("change", function (event) {
             var files = event.target.files || event.dataTransfer.files;
             for (var i = 0; i < files.length; i++) {
                 previewfile(files[i])
             }
         }, false);
     }
+
     function previewfile(file) {
         if (filereader_support === true && acceptedTypes[file.type] === true) {
             var reader = new FileReader();
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 var image = new Image();
                 image.src = event.target.result;
                 image.width = 100;

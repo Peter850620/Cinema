@@ -38,6 +38,20 @@ public class MerchService {
         return merchRepository.findAll();
     }
 
+    public void getbyId(Integer merchId){
+        merchRepository.findById(merchId);
+
+    }
+
+    public List<Merch> getbyMerchStatus(String merchStatus){
+        return merchRepository.findByMerchStatus(merchStatus);
+
+    }
+
+
+
+
+
 
 
 }

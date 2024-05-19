@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.controller", "com.cinema", "com.filter","com.config"})
+@ComponentScan(basePackages = {"com.controller", "com.cinema", "com.filter","com.config","templates"})
 public class CinemaApplication {
 
     public static void main(String[] args) {
